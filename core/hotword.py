@@ -4,7 +4,6 @@ import struct
 import time
 class HotwordDetector:
     def __init__(self):
-        ACCESS_KEY = "jgqBDHc4wkpV9vyhOTPJdmgQweWPJriLgYPf968HqNwmr14W1qUExg=="
         self.porcupine = pvporcupine.create(
             access_key=ACCESS_KEY,
             keywords=["jarvis"]
