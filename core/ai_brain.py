@@ -1,6 +1,5 @@
 from openai import OpenAI
 
-client = OpenAI(api_key="PASTE_YOUR_API_KEY")
 
 def ask_ai(prompt):
     response = client.chat.completions.create(
