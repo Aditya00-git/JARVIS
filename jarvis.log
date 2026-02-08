@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "C:\Users\seswa\OneDrive\Documents\jarvis 1\start_jarvis.py", line 11, in <module>
+    from main import run_jarvis
+  File "C:\Users\seswa\OneDrive\Documents\jarvis 1\main.py", line 2, in <module>
+    from core.brain import run_jarvis
+  File "C:\Users\seswa\OneDrive\Documents\jarvis 1\core\brain.py", line 1, in <module>
+    from core.listener import listen
+  File "C:\Users\seswa\OneDrive\Documents\jarvis 1\core\listener.py", line 1, in <module>
+    import speech_recognition as sr
+ModuleNotFoundError: No module named 'speech_recognition'
+ERROR: No module named 'speech_recognition'
