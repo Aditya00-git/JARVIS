@@ -8,6 +8,7 @@ from core.call_actions import whatsapp_voice_call
 import time
 import random
 import os
+from core.spotify_control1 import play_song
 from core.system_monitor import start_system_monitor
 from core.screen_awareness import get_active_app, read_selected_text, copy_selected_text
 from core.screen_awareness import *
@@ -185,22 +186,31 @@ def run_jarvis(ui):
                 jarvis_say("Call ending Sir")
                 whatsapp_end_call()
                 continue
-            if "play" in cmd or "stop" in cmd:      
+            if cmd.startswith("play"):
                 play_sound("doingtask.wav")
+                song = cmd.replace("play", "").strip()
+                play_song(song)
+                ui.state_signal.emit("success")
+                play_sound("taskcompleted.wav")
+                ui.notify_msg("Music played")
+
+            if "play music" in cmd or "stop music" in cmd:      
+                play_sound("doingtask.wav")
+                play_sound("opening.wav")
                 play_pause()
                 ui.state_signal.emit("success")
                 play_sound("taskcompleted.wav")
                 ui.notify_msg("Music played")
                 time.sleep(0.3)
                 continue
-            if "next" in cmd:           
+            if "next music" in cmd:           
                 play_sound("doingtask.wav")
                 next_song()
                 ui.state_signal.emit("success")
                 play_sound("taskcompleted.wav")
                 time.sleep(0.3)
                 continue
-            if "previous" in cmd or "back" in cmd:
+            if "previous music" in cmd or "back" in cmd:
                 play_sound("doingtask.wav")
                 keyboard.send("media previous track")
                 play_sound("taskcompleted.wav")
